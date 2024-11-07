@@ -5,29 +5,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hello World</title>
   <link href='/style.css' rel='stylesheet'>
+<style>
+  *{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .tengah {
+    display: flex;
+    justify-content: center;
+  }
+
+  .card {
+    width: 40%;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.3);
+  }
+
+  .cardbody {
+    padding: 2px 16px;
+  }
+
+  .cardfooter {
+    padding: 8px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: right;
+  }
+
+  .card>h2 {
+    padding: 0px 16px;
+  }
+
+  #hasil {
+    width: 100%;
+    height: 200px;
+    background-color:azure;
+    margin: 20px 0px;
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  label{
+    font-size: 14px;
+    font-weight:bold ;
+  }
+
+  input[type="text"]{
+    width: 100%;
+    padding: 12px 0px;
+    margin: 8px;
+  }
+
+  button{
+    border: none;
+    border-radius: 8px;
+    background-color:rgb(33, 111, 184) ;
+    color: white;
+    font-size: 16px;
+    padding: 5px 20px;
+  }
+</style>
+
 </head>
 <body>
+<div class="tengah">
+  <div class="card">
+
   <h2>Hitung Luas Persegi</h2>
+
+    <div class="cardbody">
   <form>
     <label>Nilai Panjang : </label>
     <input type="text" id="nPJ">
 
     <label>Nilai Lebar : </label>
     <input type="text" id="nLB">
-
-    <button type="button" onclick="hitungluas()" class="btnhitung">Hitung Luas Persegi</button>
-    
   </form>
-  Luas Persegi : <span id="nluas"></span>
+
+  <div id="hasil">Hasil Hitung Luas Persegi</div>
+</div>
+
+  <div class="cardfooter">
+  <button type="button" onclick="hitungluas()" class="btnhitung">Hitung Luas Persegi</button>
+</div>
+</div>
+</div>
 
   <script>
     function hitungluas(){
       let pj = document.getElementById("nPJ").value
       let lb = document.getElementById("nLB").value
-      let luas = pj * lb
-      document.getElementById("nluas").innerHTML = luas
 
-      console.log("Nilai dari Panjang:"+ pj +"; Nilai dari Lebar:"+lb)
+      let LU = pj * lb
+      let PJLB = Number(pj) + Number(lb)
+      let KLL = 2*PJLB
+     
+    let hsl = "Hitung Luas Persegi dengan Nilai<br>" 
+        hsl += "Panjang = "+ pj +"cm;<br>Lebar = "+ lb + "cm;<br>" 
+        hsl += "Luas = Panjang x Lebar<br>" 
+        hsl += "Luas ="+ pj + "x" + lb +"<br>"
+        hsl += "Luas = "+ LU + "cm<sup>2</sup><br>"
+        hsl += "Hitung Keliling Persegi<br>"
+        hsl += "Keliling = 2 x (Panjang + Lebar)<br>"
+        hsl += "Keliling = 2 x ("+ pj + "+" + lb +")<br>"
+        hsl += "Keliling = 2 x "+ PJLB + "<br>" 
+        hsl += "Keliling = "+ KLL + "cm<br>"
+
+    document.getElementById("hasil").innerHTML = hsl
     }
   </script>
 </body>
